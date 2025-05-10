@@ -357,7 +357,7 @@ extraVolumes:
 ## @param extraVolumeMounts Array to add extra mount
 ##
 extraVolumeMounts: 
-  - name: fintech-mdp-dev
+  - name: nginx-tls
     mountPath: /opt/bitnami/nginx/conf/certs
     readOnly: true
 ## Pods Service Account
@@ -508,7 +508,7 @@ cloneStaticSiteFromGit:
 serverBlock: |-
   server {
     listen 0.0.0.0:8089 ssl;
-    ssl_certificate /opt/bitnami/nginx/conf/certs/.crt;
+    ssl_certificate /opt/bitnami/nginx/conf/certs/tls.crt;
     ssl_certificate_key /opt/bitnami/nginx/conf/certs/tls.key;
 
     location / {
